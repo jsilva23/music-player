@@ -7,11 +7,16 @@ import Song from "./components/Song";
 
 //Import Util
 import data from "./util";
+import { useState } from "react";
 
 function App() {
+  // State
+  const [songs, setSongs] = useState(data());
+  const [currentSong, setCurrentSong] = useState(songs[2]);
+
   return (
     <div className="App">
-      <Song />
+      <Song currentSong={currentSong} />
       <Player />
     </div>
   );

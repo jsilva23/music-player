@@ -30,7 +30,7 @@ function chillHop() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=13000",
       color: ["#2F9F99", "#FFF1D6"],
       id: uuidv4(),
-      active: false,
+      active: true,
     },
     {
       name: "Flashback",
