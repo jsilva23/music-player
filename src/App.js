@@ -5,10 +5,11 @@ import "./styles/app.scss";
 //Adding components
 import Player from "./components/Player";
 import Song from "./components/Song";
+import Library from "./components/Library";
+import Nav from "./components/Nav";
 
 //Import Util
 import data from "./util";
-import Library from "./components/Library";
 
 function App() {
   function timeUpdateHandler(e) {
@@ -24,14 +25,15 @@ function App() {
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[2]);
   const [isPlaying, setIsPlaying] = useState(false);
-
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
   });
+  const [libraryStatus, setLibraryStatus] = useState(false);
 
   return (
     <div className="App">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
         audioRef={audioRef}
@@ -49,6 +51,7 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         setSongs={setSongs}
+        libraryStatus={libraryStatus}
       />
 
       <audio
